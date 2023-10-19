@@ -50,11 +50,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,//Ocupa todo el espacio disponible
     backgroundColor: 'green',
-    fountSize: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   sTexto: {
     color: 'red',
