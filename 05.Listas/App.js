@@ -1,68 +1,63 @@
 import { StatusBar } from 'expo-status-bar';
-import { Dimensions, FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, SectionList, StyleSheet, Text, SectionListt, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.mitad}>
-      <ScrollView style={styles.scroll}>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      <Text>App de listas!</Text>
-      </ScrollView>
-      </View>
-      <View style={styles.mitad}>
-        <FlatList style={styles.scroll}
-        // quita rendimiento del equipo
-          data={[
-            {key:1, nombre:'Dan'},
-            {key:2, nombre:'Dominic'},
-            {key:3, nombre:'Devin'},
-            {key:4, nombre:'Jackson'},
-            {key:5, nombre:'James'},
-            {key:6, nombre:'Joel'},
-            {key:7, nombre:'John'},
-            {key:8, nombre:'Jillian'},
-            {key:9, nombre:'Jimmy'},
-            {key:10, nombre:'Julie'},
+        <SectionList 
+          style={styles.scroll}
+          sections={[
+            {
+              title: 'Grupo 1',
+              data: [
+                {key:1, nombre:'Dan'},
+                {key:2, nombre:'Dominic'},
+                {key:3, nombre:'Devin'},
+                {key:4, nombre:'Jackson'},
+                {key:5, nombre:'James'},
+                {key:6, nombre:'Joel'},
+                {key:7, nombre:'John'},
+                {key:8, nombre:'Jillian'},
+                {key:9, nombre:'Jimmy'},
+                {key:10, nombre:'Julie'},
+              ],
+            },
+            {
+              title: 'Grupo 2',
+              data: [
+                {key:1, nombre:'Dan'},
+                {key:2, nombre:'Dominic'},
+                {key:3, nombre:'Devin'},
+                {key:4, nombre:'Jackson'},
+                {key:5, nombre:'James'},
+                {key:6, nombre:'Joel'},
+                {key:7, nombre:'John'},
+                {key:8, nombre:'Jillian'},
+                {key:9, nombre:'Jimmy'},
+                {key:10, nombre:'Julie'},
+              ],
+            },
+            {
+              title: 'Grupo 3',
+              data: [
+                {key:1, nombre:'Dan'},
+                {key:2, nombre:'Dominic'},
+                {key:3, nombre:'Devin'},
+                {key:4, nombre:'Jackson'},
+                {key:5, nombre:'James'},
+                {key:6, nombre:'Joel'},
+                {key:7, nombre:'John'},
+                {key:8, nombre:'Jillian'},
+                {key:9, nombre:'Jimmy'},
+                {key:10, nombre:'Julie'},
+              ],
+            },
           ]}
+
+          renderSectionHeader={({section}) => <Text style={styles.section}>{section.title}</Text>}
           renderItem={({item}) => <Text style={styles.text}>{item.key}.- {item.nombre}</Text>}
+
         />
-      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -89,5 +84,14 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomColor: "#ccc",
     borderBottomWidth: 2,
+  },
+  section: {
+    fontSize: 22,
+    color: 'green',
+    padding: 10,
+    borderBottomColor: "#ccc",
+    borderBottomWidth: 2,
+    fontWeight: 'bold',
+    backgroundColor: '#00aaff'
   },
 });
