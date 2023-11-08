@@ -1,18 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions, Modal } from 'react-native';
-import MapView from 'react-native-maps';
+import {Mapa, MiModal, Panel, Input} from './components';
+import { useState } from 'react';
 
 export default function App() {
+
+  const [puntos, setPuntos] = useState([])
+  const [name, setName] = useState('')
+  const [puntoMap, setPuntoMap] = useState({})//jeson
+  const [mostrar, setMostrar] = useState(false)
+
+
+  const estableceTexto = text => {
+    setName(text);
+
+  }
   return (
     <View style={styles.container}>
-      <MapView style={styles.map}/>
-      <Modal animationType='slide' transparent={true} visible={true}>
-        <View style={styles.vmodal}>
-          <View style={styles.cmodal}>
-            <Text>Mi modal</Text>
-          </View>
-        </View>
-      </Modal>
+      <Mapa onLongPress={
+        ({nativeEvent}) => {
+          let addPuntos = puntos.concat({coordinate: nativeEvent.coordinate});
+          setPuntos(addPuntos);
+          console.log(puntos);
+          
+        }
+      }/>
+      <MiModal mostrar={false}>
+        <Input 
+        title='Datos' 
+        placeholder='Escribeme...'
+        onChangeText={estableceTexto}/>
+      </MiModal>
+      <Panel />
       <StatusBar style="auto" />
     </View>
   );
@@ -25,22 +44,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  map: {
-      flex:1,
-      width: Dimensions.get('window').width,
-      height: Dimensions.get('window').height,
-  },
-  vmodal: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cmodal: {
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: {width: 2, height: 3},
-    
-  }
 });
