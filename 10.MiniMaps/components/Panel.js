@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, View, Button } from "react-native";
 
-export default () => {
+export default ({onPressLeft, textLeft, ocultarPuntos }) => {
     return (
         <View style={styles.tablero}>
-            <Button title="Abrir modal" onPress={() => {}} />
-            <Button title="Cerrar modal" onPress={() => {}} />
+            <Button title={textLeft} onPress={onPressLeft} />
+            <Button title="Mostrat/Ocultar" onPress={ocultarPuntos} />
         </View>
     );
 }

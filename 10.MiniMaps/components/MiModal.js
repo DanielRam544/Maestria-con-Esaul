@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions, Modal } from 'react-native';
 
 export default ({children, mostrar}) =>  {
@@ -18,6 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,.4)',
   },
   cmodal: {
     backgroundColor: '#fff',
@@ -25,6 +25,5 @@ const styles = StyleSheet.create({
     padding: 20,
     shadowColor: '#000',
     shadowOffset: {width: 2, height: 3},
-    
   }
 });
