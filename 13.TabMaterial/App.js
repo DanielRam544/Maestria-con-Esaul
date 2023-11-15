@@ -23,7 +23,12 @@ const Tab = createMaterialBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator 
+      initialRouteName='Home'
+      activeColor='#48A98F'
+      inactiveColor='#906090'
+      barStyle={{backgroundColor: '#85929E'}}
+      >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Users" component={UsersScreen} />
       </Tab.Navigator>
@@ -36,12 +41,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'grey',
+    backgroundColor: '#D7DBDD',
     padding: 35,
   },
   text: {
     fontSize: 30,
-    color: 'lightblue',
+    color: '#6C3483',
 
   }
   
