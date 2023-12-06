@@ -9,7 +9,7 @@ export default function App() {
   const [user, setUser] = useState([])
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    fetch('https://sabee.com.mx/data/usersmock.json')//petición a la api
+    fetch('https://sabee.com.mx/data/data100.json')//petición a la api
       .then(res => res.json())
       .then(data => {
         setUser(data)
